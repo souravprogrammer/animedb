@@ -1,17 +1,26 @@
-import app from "./src/config.js";
-import animeRouter from "./src/route/Anime/Anime.js";
-app.use("api/", animeRouter);
+import app from "./config.js";
+import serverless from "serverless-http";
+import animeRouter from "./route/Anime/Anime.js";
 
+if (process.env.NETLIFY) {
+  app.use(process.env.NETLIFY, animeRouter);
+} else {
+  app.use("api/", animeRouter);
+}
 app.all("*", (req, res, next) => {
   res.json({
     message: "Invalid Route",
   });
 });
-app.listen(4000, (err) => {
+
+app.listen(process.env.PORT, (err) => {
   err
     ? console.log("error ", err.message)
     : console.log("server is listening on port 4000");
 });
+
+// for netlify
+export default { handler: serverless(app) };
 
 // async function test() {
 //   const files = ["./animedb/anime(D char).json"];
