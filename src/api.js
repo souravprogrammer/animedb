@@ -2,8 +2,8 @@ import app from "./config.js";
 import serverless from "serverless-http";
 import animeRouter from "./route/Anime/Anime.js";
 
-if (process.env.NETLIFY) {
-  app.use(process.env.NETLIFY, animeRouter);
+if (process.env.DEPLOY) {
+  app.use(process.env.DEPLOY, animeRouter);
 } else {
   app.use("api/", animeRouter);
 }
