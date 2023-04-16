@@ -1,12 +1,9 @@
 import app from "./config.js";
-import serverless from "serverless-http";
+// import serverless from "serverless-http";
 import animeRouter from "./route/Anime/Anime.js";
 
-if (process.env.DEPLOY) {
-  app.use(process.env.DEPLOY, animeRouter);
-} else {
-  app.use("api/", animeRouter);
-}
+app.use("/", animeRouter);
+
 app.all("*", (req, res, next) => {
   res.json({
     message: "Invalid Route",
@@ -20,7 +17,7 @@ app.listen(process.env.PORT, (err) => {
 });
 
 // for netlify
-export default { handler: serverless(app) };
+// export default { handler: serverless(app) };
 
 // async function test() {
 //   const files = ["./animedb/anime(D char).json"];
