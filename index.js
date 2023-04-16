@@ -1,6 +1,6 @@
-import app from "./config.js";
+import app from "./src/config.js";
 // import serverless from "serverless-http";
-import animeRouter from "./route/Anime/Anime.js";
+import animeRouter from "./src/route/Anime/Anime.js";
 
 app.use("/", animeRouter);
 
