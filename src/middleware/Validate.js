@@ -6,11 +6,12 @@ async function validateSignature(req, res, next) {
     const key = req.header("x-api-key");
     const time = req.header("time");
     const csd = req.header("ua-des");
-    const myhash = hash(key + new Date(parseInt(time)).toLocaleTimeString());
+    const myhash = hash(key + time);
     if (myhash === csd) next();
-    res.status(401).json({
-      message: "not allowed",
-    });
+    else
+      res.status(401).json({
+        message: "not allowed",
+      });
   } catch (err) {
     res.status(500).json({
       message: "error 222",
