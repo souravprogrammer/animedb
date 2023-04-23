@@ -12,7 +12,7 @@ import validateSignature from "../../middleware/Validate.js";
 
 const animeRouter = express.Router();
 
-animeRouter.use(validateSignature);
+// animeRouter.use(validateSignature);
 
 animeRouter.get("/search", serchValidator, search);
 animeRouter.get("/info/:id", idValidator, info);

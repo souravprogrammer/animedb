@@ -12,11 +12,11 @@ async function info(req, res, next) {
           _id: new mongoose.Types.ObjectId(id),
         },
       },
-      {
-        $project: {
-          "episodes.link": 0,
-        },
-      },
+      // {
+      //   $project: {
+      //     "episodes.link": 0,
+      //   },
+      // },
     ]);
     if (data.length === 0) {
       success({ message: "show not found" }, res, 404);
