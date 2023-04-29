@@ -6,7 +6,8 @@ import idValidator from "../../middleware/info.js";
 import serchValidator from "../../middleware/searchvalidator.js";
 import validateSignature from "../../middleware/Validate.js";
 import List from "../../controller/search/list.js";
-
+import Popular from "../../controller/search/Popular.js";
+import Random from "../../controller/search/Random.js";
 /**
  *  search?keyw
  */
@@ -18,6 +19,9 @@ const animeRouter = express.Router();
 animeRouter.get("/search", serchValidator, search);
 animeRouter.get("/info/:id", idValidator, info);
 animeRouter.get("/list/:page", List);
+animeRouter.get("/popular", Popular);
+animeRouter.get("/Random", Random);
+
 animeRouter.get("/watch/:id", idValidator, episode);
 
 export default animeRouter;
