@@ -8,6 +8,12 @@ import validateSignature from "../../middleware/Validate.js";
 import List from "../../controller/search/list.js";
 import Popular from "../../controller/search/Popular.js";
 import Random from "../../controller/search/Random.js";
+import IncreaseView from "../../middleware/IncreaseView.js";
+
+import BookMark from "../../controller/bookmark/BookmarkAnimes.js";
+import BookMarkRetrive from "../../controller/bookmark/BokMarkRetrive.js";
+import BookmarkValidator from "../../middleware/BookmarkBodyValidator.js";
+
 /**
  *  search?keyw
  */
@@ -17,11 +23,12 @@ const animeRouter = express.Router();
 // animeRouter.use(validateSignature);
 
 animeRouter.get("/search", serchValidator, search);
-animeRouter.get("/info/:id", idValidator, info);
+animeRouter.get("/info/:id", idValidator, IncreaseView, info);
 animeRouter.get("/list/:page", List);
 animeRouter.get("/popular", Popular);
 animeRouter.get("/Random", Random);
-
+animeRouter.get("/bookmark/:id", idValidator, BookMarkRetrive);
+animeRouter.post("/bookmark/:id", idValidator, BookmarkValidator, BookMark);
 animeRouter.get("/watch/:id", idValidator, episode);
 
 export default animeRouter;

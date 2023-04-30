@@ -21,6 +21,10 @@ const animeSchema = new mongoose.Schema({
   type: {
     type: String,
   },
+  views: {
+    type: Number,
+    default: 0,
+  },
 });
 
 export default mongoose.model("anime", animeSchema);
