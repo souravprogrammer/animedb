@@ -4,6 +4,7 @@ import { ObjectId } from "bson";
 async function BookmarkValidator(req, res, next) {
   try {
     const { animeId } = req.body;
+
     if (ObjectId.isValid(animeId)) {
       next();
     } else {

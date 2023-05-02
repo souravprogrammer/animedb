@@ -13,6 +13,7 @@ import IncreaseView from "../../middleware/IncreaseView.js";
 import BookMark from "../../controller/bookmark/BookmarkAnimes.js";
 import BookMarkRetrive from "../../controller/bookmark/BokMarkRetrive.js";
 import BookmarkValidator from "../../middleware/BookmarkBodyValidator.js";
+import BookmarkRemove from "../../controller/bookmark/BookmarkRemove.js";
 
 /**
  *  search?keyw
@@ -29,6 +30,13 @@ animeRouter.get("/popular", Popular);
 animeRouter.get("/Random", Random);
 animeRouter.get("/bookmark/:id", idValidator, BookMarkRetrive);
 animeRouter.post("/bookmark/:id", idValidator, BookmarkValidator, BookMark);
+animeRouter.delete(
+  "/bookmark/:id",
+  idValidator,
+  BookmarkValidator,
+  BookmarkRemove
+);
+
 animeRouter.get("/watch/:id", idValidator, episode);
 
 export default animeRouter;
