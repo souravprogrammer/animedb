@@ -13,13 +13,14 @@ async function Random(req, res, next) {
       {
         $addFields: {
           episodesCount: { $size: "$episodes" },
-          des: {
-            $substr: [
-              "$description",
-              0,
-              { $divide: [{ $strLenCP: "$description" }, 4] },
-            ],
-          },
+          des: "$description",
+          //  {
+          //   $substr: [
+          //     "$description",
+          //     0,
+          //     { $divide: [{ $strLenCP: "$description" }, 4] },
+          //   ],
+          // },
         },
       },
       {

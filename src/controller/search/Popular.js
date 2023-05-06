@@ -4,20 +4,19 @@ import error from "../../utils/error.js";
 
 const PAGE_SIZE = 10;
 async function Popular(req, res, next) {
-  //   const { page = 1 } = req.params;
-
   try {
     const data = await AnimeModel.aggregate([
       {
         $addFields: {
           episodesCount: { $size: "$episodes" },
-          des: {
-            $substr: [
-              "$description",
-              0,
-              { $divide: [{ $strLenCP: "$description" }, 4] },
-            ],
-          },
+          des: "$description",
+          // {
+          //   $substr: [
+          //     "$description",
+          //     0,
+          //     { $divide: [{ $strLenCP: "$description" }, 1] },
+          //   ],
+          // },
         },
       },
       {
