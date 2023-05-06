@@ -18,9 +18,26 @@ app.listen(process.env.PORT, (err) => {
 
 // for netlify
 // export default { handler: serverless(app) };
+// import mongoose from "mongoose";
+// import { dirname } from "path";
+// import { fileURLToPath } from "url";
+// import path from "path";
+// import fs from "fs";
+
+// const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// const ObjectId = mongoose.Types.ObjectId;
 
 // async function test() {
-//   const files = ["./animedb/anime(D char).json"];
+//   const files = [
+//     path.join(__dirname, "animedb/n2/(E).json"),
+//     path.join(__dirname, "animedb/n2/(F).json"),
+//     path.join(__dirname, "animedb/n2/(G).json"),
+//     path.join(__dirname, "animedb/n2/(H).json"),
+//     path.join(__dirname, "animedb/n2/(I).json"),
+//     path.join(__dirname, "animedb/n2/(J).json"),
+//     path.join(__dirname, "animedb/n2/(K).json"),
+//   ];
 //   let content = [];
 
 //   for (let f of files) {
@@ -50,3 +67,5 @@ app.listen(process.env.PORT, (err) => {
 
 //   fs.writeFileSync("./combiled.json", combined);
 // }
+
+// test();
