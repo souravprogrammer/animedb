@@ -33,6 +33,7 @@ export default async function BookMarkRetrive(req, res, next) {
             image: "$list.image",
             rating: "$list.rating",
             duration: "$list.duration",
+            _id: "$list._id",
           },
         },
       },
