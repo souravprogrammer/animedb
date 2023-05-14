@@ -25,7 +25,9 @@ const animeRouter = express.Router();
 
 animeRouter.get("/search", serchValidator, search);
 animeRouter.get("/info/:id", idValidator, IncreaseView, info);
-animeRouter.get("/list/:page", List);
+// animeRouter.get("/list/:page", List);
+animeRouter.get("/list", List);
+
 animeRouter.get("/popular", Popular);
 animeRouter.get("/Random", Random);
 animeRouter.get("/bookmark/:id", idValidator, BookMarkRetrive);
